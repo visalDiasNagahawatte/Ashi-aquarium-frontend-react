@@ -1,0 +1,59 @@
+.image {
+  /* background-image: url("https://www.suitandtie.lk/wp-content/uploads/2019/11/73009820_2451558234913282_6027530092157075456_n-e1572859680649.jpg"); */
+  background: linear-gradient(0deg, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+    url("https://i.imgur.com/k175MzC.jpg");
+  background-position: center center;
+  background-size: cover;
+  padding: 95px 20px 50px 20px;
+  background-color: #000000;
+
+  width: 100%;
+  height: 100%;
+}
+
+.text {
+  color: #ffffff;
+  font-size: 40px;
+  text-align: center;
+  top: -18px;
+  position: relative;
+}
+
+.left {
+  padding: 5% 0 0 0;
+
+  /* border: 2px solid red; */
+}
+
+.text1 {
+  font-size: 45px;
+  font-weight: normal;
+  line-height: 55px;
+  padding-left: 20%;
+}
+.text2 {
+  text-align: left;
+  padding-left: 20%;
+  line-height: 2;
+}
+
+.image2 {
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  width: 100%;
+  height: auto;
+  padding: 5% 20% 0 0;
+}
+
+.text3 {
+  padding: 3% 0 0 10%;
+}
+
+.text4 {
+  padding: 0.5% 0 0 10%;
+}
+
+.text5 {
+  padding: 0.5%0 0 10%;
+}

@@ -1,0 +1,33 @@
+.icon-hover:hover {
+  border-color: #3b71ca !important;
+  background-color: white !important;
+}
+
+.icon-hover:hover i {
+  color: #3b71ca !important;
+}
+
+.btnadd {
+  position: relative;
+  left: 90%;
+  background-color: hsl(217, 55%, 78%);
+  border: none;
+  border-radius: 7px;
+  padding: 10px;
+}
+
+.main > table {
+  margin-top: 50px;
+  margin-left: 5%;
+}
+
+.header {
+  text-align: center;
+}
+.table-container {
+  overflow-x: hidden;
+}
+
+.row.flex-grow-1 {
+  max-width: 100%; /* Set a specific width or percentage as needed */
+}
