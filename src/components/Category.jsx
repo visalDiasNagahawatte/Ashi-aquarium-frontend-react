@@ -7,7 +7,6 @@ const Category = ({ selectedCategory, setSelectedCategory, categories }) => {
 
   return (
     <div className="col-lg-3">
-      {/* ... (rest of the code) */}
       <div
         className="collapse card d-lg-block mb-5"
         id="navbarSupportedContent"
@@ -36,10 +35,9 @@ const Category = ({ selectedCategory, setSelectedCategory, categories }) => {
                 <select
                   id="categories"
                   className="form-select"
-                  value={selectedCategory}
                   onChange={handleCategoryChange}
                 >
-                  <option value={null}>All Categories</option>
+                  <option value="">All Categories</option>
                   {categories.map((category) => (
                     <option
                       key={category.categoryId}

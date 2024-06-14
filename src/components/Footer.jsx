@@ -22,7 +22,7 @@ export default function Footer() {
               color="light"
               floating
               className="m-1"
-              href="https://web.facebook.com/ceylonExecutive"
+              href="https://web.facebook.com"
               role="button"
             >
               <MDBIcon fab icon="facebook-f" />

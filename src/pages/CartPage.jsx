@@ -80,7 +80,7 @@ function CartPage() {
                                   {item.title}
                                 </a>
                                 <p className="text-muted">
-                                  Includes: Jacket & Pant
+                                  Includes: Tank Plants
                                 </p>
                               </div>
                             </div>

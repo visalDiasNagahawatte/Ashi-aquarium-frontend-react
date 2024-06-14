@@ -10,7 +10,7 @@ function ItemInfoPage() {
   const { title } = useParams(); // Access the id parameter from the URL
   const [selectedItem, setSelectedItem] = useState(null);
   const [quantity, setQuantity] = useState(1); // Initialize the quantity state with 1
-  const [rentalDuration, setRentalDuration] = useState("05 Days"); // Initialize the rental duration state with the default value
+  const [rentalDuration, setRentalDuration] = useState("Young Fish"); // Initialize the rental duration state with the default value
 
   // Use the useSelector hook to access the isLoggedIn state from the Redux store
   const isLoggedIn = useSelector((state) => state.auth.isLoggedIn);
@@ -124,15 +124,6 @@ function ItemInfoPage() {
                 <div class="ps-lg-3">
                   <h4 class="title text-dark">{selectedItem.title}</h4>
                   <div class="d-flex flex-row my-3">
-                    {/* <div class="text-warning mb-1 me-2">
-                      <i class="fa fa-star"></i>
-                      <i class="fa fa-star"></i>
-                      <i class="fa fa-star"></i>
-                      <i class="fa fa-star"></i>
-                      <i class="fas fa-star-half-alt"></i>
-                      <span class="ms-1">4.5</span>
-                    </div> */}
-
                     {selectedItem.inStock ? (
                       <span class="text-success ms-2">In stock</span>
                     ) : (
@@ -142,9 +133,7 @@ function ItemInfoPage() {
                   <div class="mb-3">
                     <span class="h5">Rs. {selectedItem.price}/-</span>
                     {/* <span class="text-muted"> per week</span> */}
-                    <div class="mt-2">
-                      {/* <span class="h5"> Includes: Jacket & Pant</span> */}
-                    </div>
+                    <div class="mt-2"></div>
                   </div>
                   <p style={{ whiteSpace: "pre-line" }}>
                     {selectedItem.description}

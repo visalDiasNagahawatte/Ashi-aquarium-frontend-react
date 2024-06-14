@@ -11,13 +11,13 @@ function ShopNowCard() {
       <Card style={{ width: "50rem" }}>
         <Card.Img variant="top" src="/images/cards/wide_logo.jpg" />
         <Card.Body style={{ textAlign: "center", backgroundColor: "white" }}>
-          <Card.Title> Rent Your Perfect Outfit Now</Card.Title>
+          <Card.Title> Discover Your Aquarium's Potential</Card.Title>
           <Card.Text>
-            Explore our limited-time offers and save big on your favorite items.
-            Shop now before it's too late!
+            Unlock endless possibilities with our quality products and expert
+            advice. Enhance your aquarium experience with ease and confidence.
           </Card.Text>
           <Link to={"/renthomepage01"}>
-            <Button variant="primary">Visit NOW</Button>
+            <Button variant="primary">buy NOW</Button>
           </Link>
         </Card.Body>
       </Card>
