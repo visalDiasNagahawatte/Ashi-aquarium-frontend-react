@@ -10,7 +10,7 @@ function ItemInfoPage() {
   const { title } = useParams(); // Access the id parameter from the URL
   const [selectedItem, setSelectedItem] = useState(null);
   const [quantity, setQuantity] = useState(1); // Initialize the quantity state with 1
-  const [rentalDuration, setRentalDuration] = useState("Young Fish"); // Initialize the rental duration state with the default value
+  const [rentalDuration, setRentalDuration] = useState(""); // Initialize the rental duration state with the default value
 
   // Use the useSelector hook to access the isLoggedIn state from the Redux store
   const isLoggedIn = useSelector((state) => state.auth.isLoggedIn);
@@ -86,6 +86,9 @@ function ItemInfoPage() {
       console.log("Item added to the cart");
     }
   };
+  const shouldHideSizeOfFish =
+    selectedItem?.title.includes("Tank") ||
+    selectedItem?.title.includes("Lamp");
 
   return (
     <div>
@@ -138,16 +141,55 @@ function ItemInfoPage() {
                   <p style={{ whiteSpace: "pre-line" }}>
                     {selectedItem.description}
                   </p>
-                  <div class="row">
-                    <dt class="col-3">For Young Fish:</dt>
-                    <dd class="col-9">No additional fee</dd>
+                  {!shouldHideSizeOfFish ? (
+                    <div>
+                      <div className="row">
+                        <dt className="col-3">For Young Fish:</dt>
+                        <dd className="col-9">No additional fee</dd>
 
-                    <dt class="col-3">For Medium Grown:</dt>
-                    <dd class="col-9">Rs. 500/- additional fee</dd>
+                        <dt className="col-3">For Medium Grown:</dt>
+                        <dd className="col-9">Rs. 200/- additional fee</dd>
 
-                    <dt class="col-3">For Fully Grown:</dt>
-                    <dd class="col-9">Rs. 1000/- additional fee</dd>
-                  </div>
+                        <dt className="col-3">For Fully Grown:</dt>
+                        <dd className="col-9">Rs. 500/- additional fee</dd>
+                      </div>
+                    </div>
+                  ) : (
+                    <div>
+                      <p>
+                        Transform your aquatic environment with our premium
+                        aquarium accessories. Our selection of products is
+                        designed to provide optimal living conditions for your
+                        aquatic pets while enhancing the visual appeal of your
+                        underwater world. From innovative filtration systems to
+                        energy-efficient lighting solutions, we have everything
+                        you need to create a stunning and healthy habitat for
+                        your fish and plants.
+                      </p>
+                      <ul>
+                        <li>
+                          High-Quality Materials: Crafted with durable,
+                          high-grade materials to ensure longevity and
+                          reliability.
+                        </li>
+                        <li>
+                          Advanced Technology: State-of-the-art features that
+                          promote a clean and balanced ecosystem.
+                        </li>
+                        <li>
+                          Versatile Design: Suitable for various types and sizes
+                          of aquatic setups, offering flexibility and
+                          customization.
+                        </li>
+                        <li>
+                          {" "}
+                          Enhanced Aesthetics: Sleek and modern designs that
+                          seamlessly integrate into any home decor, providing a
+                          visually pleasing aquatic environment.
+                        </li>
+                      </ul>
+                    </div>
+                  )}
                   <hr />
                   <div class="row mb-3">
                     <div class="col-md-4 col-6 mb-3 ">
@@ -181,19 +223,22 @@ function ItemInfoPage() {
                         </button>
                       </div>
                     </div>
-                    <div class="col-md-4 col-6">
-                      <label class="mb-2">Size of fish</label>
-                      <select
-                        class="form-select border border-secondary"
-                        style={{ height: "35px" }}
-                        value={rentalDuration}
-                        onChange={handleRentalDurationChange}
-                      >
-                        <option> Young Fish</option>
-                        <option>Medium Grown</option>
-                        <option>Fully Grown</option>
-                      </select>
-                    </div>
+
+                    {!shouldHideSizeOfFish && (
+                      <div className="col-md-4 col-6">
+                        <label className="mb-2">Size of fish</label>
+                        <select
+                          className="form-select border border-secondary"
+                          style={{ height: "35px" }}
+                          value={rentalDuration}
+                          onChange={handleRentalDurationChange}
+                        >
+                          <option value={"Young Fish"}>Young Fish</option>
+                          <option value={"Medium Grown"}>Medium Grown</option>
+                          <option value={"Fully Grown"}>Fully Grown</option>
+                        </select>
+                      </div>
+                    )}
                   </div>
                   {isLoggedIn ? (
                     // If the user is logged in, show the add to cart button

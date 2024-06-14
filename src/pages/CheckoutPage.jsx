@@ -7,6 +7,20 @@ import axios from "axios";
 import { useCart } from "react-use-cart";
 
 function CheckoutPage() {
+  const { emptyCart } = useCart(); // Access the items and removeItem functions from useCart hook
+
+  const handleOrder = () => {
+    // Perform actions before redirecting (e.g., send order details to server)
+
+    setTimeout(() => {
+      window.location.href = "/"; // Replace '/' with your actual home page URL
+    }, 1000);
+
+    // Display success message (you can customize how you want to show this message)
+    alert("Order successful"); // Example: Using a simple alert for demonstration
+    emptyCart();
+  };
+
   const [customerData, setCustomerData] = useState(null);
   const [customerFound, setCustomerFound] = useState(false);
   const [customerId, setCustomerId] = useState(null);
@@ -296,7 +310,7 @@ function CheckoutPage() {
       <div>
         {/* <!-- cart + summary --> */}
         <section className="bg-light my-5">
-          <div className="ms-4">
+          {/* <div className="ms-4">
             <MDBRow className="mb-4">
               <h5>Submit Your NIC</h5>
               <MDBCol className="col-3 mb-1">
@@ -322,12 +336,12 @@ function CheckoutPage() {
                 )}
               </MDBCol>
             </MDBRow>
-          </div>
+          </div> */}
           <div className="container">
             <div className="row">
               {/* <!-- form --> */}
               <div className="shadow-0 border bill col-lg-4 me-5">
-                <form onSubmit={(e) => e.preventDefault()}>
+                <form>
                   <h3 className="bill-heading">Billing Information</h3>
                   <MDBRow className="mb-4">
                     <MDBCol>
@@ -397,8 +411,8 @@ function CheckoutPage() {
                   />
                 </form>
               </div>
-              <div className="shadow-0 border measurements col-lg-4 me-4">
-                <form onSubmit={(e) => e.preventDefault()}>
+              {/* <div className="shadow-0 border measurements col-lg-4 me-4">
+                <form>
                   <h3 className="measurements-heading">Your Measurements</h3>
                   <MDBRow className="mb-4">
                     <MDBCol>
@@ -465,7 +479,7 @@ function CheckoutPage() {
                     onChange={handleChange}
                   />
                 </form>
-              </div>
+              </div> */}
               {/* <!-- form --> */}
               {/* <!-- summary --> */}
               <div className="col-lg-3 ms-4">
@@ -483,7 +497,7 @@ function CheckoutPage() {
 
                     <div className="mt-3">
                       <button
-                        onClick={handlePlaceOrder}
+                        onClick={handleOrder}
                         className="btn btn-success w-100 border mt-2"
                       >
                         Place Order

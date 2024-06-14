@@ -7,7 +7,7 @@ import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 
 function CartPage() {
-  const { items, isEmpty, removeItem, emptyCart } = useCart(); // Access the items and removeItem functions from useCart hook
+  const { items, isEmpty, removeItem, emptyCart, cartTotal } = useCart(); // Access the items and removeItem functions from useCart hook
   // if (isEmpty) return <p>Your cart is empty</p>;
   const [productData, setProductData] = useState([]);
 
@@ -15,28 +15,28 @@ function CartPage() {
     (acc, item) =>
       acc +
       item.price * item.quantity +
-      getAdditionalAmount(item.rentalDuration),
+      getAdditionalAmount(item.rentalDuration) * item.quantity,
     0
   );
 
   function getAdditionalAmount(rentalDuration) {
-    if (rentalDuration === "05 Days") {
+    if (rentalDuration === "Young Fish") {
       return 0;
-    } else if (rentalDuration === "07 Days") {
+    } else if (rentalDuration === "Medium Grown") {
+      return 200;
+    } else if (rentalDuration === "Fully Grown") {
       return 500;
-    } else if (rentalDuration === "14 Days") {
-      return 1000;
     } else {
       return 0; // Default to 0 if rentalDuration doesn't match any condition
     }
   }
   function renderAdditionalAmount(rentalDuration) {
-    if (rentalDuration === "05 Days") {
-      return "No Additional Fee";
-    } else if (rentalDuration === "07 Days") {
-      return "Rs. 500/- Additional Fee";
-    } else if (rentalDuration === "14 Days") {
-      return "Rs. 1000/- Additional Fee";
+    if (rentalDuration === "Young Fish") {
+      return "No additional fee";
+    } else if (rentalDuration === "Medium Grown") {
+      return "Rs. 200/- additional fee per item";
+    } else if (rentalDuration === "Fully Grown") {
+      return "Rs. 500/- additional fee per item";
     } else {
       return 0; // Default to 0 if rentalDuration doesn't match any condition
     }
@@ -68,7 +68,7 @@ function CartPage() {
                       <div className="row gy-3 mb-4" key={item.id}>
                         <div className="col-lg-5">
                           <div className="me-lg-5">
-                            <div className="d-flex">
+                            <div className="d-flex col=lg-5">
                               <img
                                 src={item.image}
                                 className="border rounded me-3"
@@ -92,9 +92,9 @@ function CartPage() {
                               <span>Quantity: {item.quantity}</span>
                             </p>
                           </div>
-                          <div className="me-lg-5">
+                          <div className="me-lg-5 col-lg-3">
                             <p>
-                              <span>{item.rentalDuration}</span>
+                              <span>{item.rentalDuration || "\u00A0"}</span>
                             </p>
                           </div>
 
@@ -102,12 +102,14 @@ function CartPage() {
                             <text className="h6">
                               Rs.{" "}
                               {item.quantity * item.price +
-                                getAdditionalAmount(item.rentalDuration)}
+                                getAdditionalAmount(item.rentalDuration) *
+                                  item.quantity}
                             </text>{" "}
+                            <br />
                             <br />
                             <small className="text-muted text-nowrap">
                               {" "}
-                              Rs. {item.price}/- Per Item <br />
+                              Rs. {item.price}/- per Item <br />
                               {renderAdditionalAmount(item.rentalDuration)}
                             </small>
                           </div>

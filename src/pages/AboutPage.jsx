@@ -31,7 +31,10 @@ const AboutPage = () => {
         </div>
         <div className="right col-6">
           <div className="image2">
-            <img src="https://i.imgur.com/aSykobj.jpg" alt="" />
+            <img
+              src="https://i.imghippo.com/files/7alhJ1718349611.jpg"
+              alt=""
+            />
           </div>
         </div>
         <div className="div paragraph mb-5">

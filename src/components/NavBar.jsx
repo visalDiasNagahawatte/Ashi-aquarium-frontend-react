@@ -52,7 +52,7 @@ function NavBar() {
               <Nav.Link href="/renthomepage01">Buy</Nav.Link>
 
               <Nav.Link href="/about">About</Nav.Link>
-              <Nav.Link href="/weddings">Events</Nav.Link>
+              {/* <Nav.Link href="/weddings">Events</Nav.Link> */}
               <Nav.Link href="/contact">Contact Us</Nav.Link>
             </Nav>
 
